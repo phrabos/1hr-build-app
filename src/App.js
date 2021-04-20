@@ -10,7 +10,8 @@ export default class App extends Component {
     cardStatus: 'hidden',
   }
 
-  handleCardClick = () => {
+  handleCardClick = (e) => {
+    console.log(e.target.value)
     if(this.state.cardStatus === 'hidden'){
       this.setState({cardStatus: 'show' })
     }
@@ -32,10 +33,12 @@ export default class App extends Component {
          return <p 
          key={card + i}
          onClick={this.handleCardClick}
+         value={i}
          className='card'
 
          >
-           <span className={this.state.cardStatus}>{card}</span></p>
+           <span className={this.state.cardStatus}>{card}</span>
+           </p>
         })
         }
       </div>
